@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Epifi KYC</string>
+    <string name="str_header">First of the few steps to set you up with a Bank Account</string>
     <string name="str_learn_more">Providing PAN &amp; Date of Birth helps us find and fetch your KYC from a central registry by the Government of India. <font color="#FF6200EE">Learn More</font></string>
+    <string name="str_pan_header">PAN Number</string>
+    <string name="str_birthdate_header">Birthdate</string>
+    <string name="str_no_pan_header">I don\'t have a PAN</string>
+    <string name="str_btn_submit">Next</string>
 </resources>

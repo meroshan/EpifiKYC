@@ -1,8 +1,10 @@
 package com.myapp.epifikyc
 
+import android.content.Context
 import android.os.Bundle
 import android.text.InputFilter
-import android.util.Log
+import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.widget.addTextChangedListener
@@ -57,13 +59,22 @@ class MainActivity : AppCompatActivity() {
         }
         binding.etMonth.setOnFocusChangeListener { v, hasFocus ->
             if (!hasFocus && binding.etMonth.text.length == 1) {
-                binding.etDay.text.insert(0, "0")
+                binding.etMonth.text.insert(0, "0")
             }
         }
 
         binding.etYear.addTextChangedListener {
             val text = binding.etYear.text.toString()
             mainViewModel.setBirthYear(text)
+        }
+
+        binding.btnNext.setOnClickListener {
+            Toast.makeText(this, "Details submitted successfully", Toast.LENGTH_LONG).show()
+            finish()
+        }
+
+        binding.textNoPan.setOnClickListener {
+            finish()
         }
     }
 
@@ -77,9 +88,17 @@ class MainActivity : AppCompatActivity() {
     private fun nextButtonObserver() {
         binding.btnNext.isEnabled = false
         lifecycleScope.launchWhenStarted {
-            mainViewModel.isButtonEnabled.collect {
-                Log.d("merahulroshan1", "isPanNoValid: $it")
+            mainViewModel.isButtonEnabled.collect { it ->
                 binding.btnNext.isEnabled = it
+                if (it) {
+                    this@MainActivity.currentFocus.let {
+                        val inputManager =
+                            getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+                        if (it != null) {
+                            inputManager?.hideSoftInputFromWindow(it.windowToken, 0)
+                        }
+                    }
+                }
             }
         }
     }

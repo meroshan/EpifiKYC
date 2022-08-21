@@ -9,9 +9,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MainViewModel : ViewModel() {
-    private val TAG = "merahulroshan"
-    private var _isPanNoValid = MutableStateFlow<Boolean>(false)
-    val isPanNoValid: StateFlow<Boolean> = _isPanNoValid
+    //private var _isPanNoValid = MutableStateFlow<Boolean>(false)
+    //val isPanNoValid: StateFlow<Boolean> = _isPanNoValid
 
     private val panNumber = MutableStateFlow("")
     private val birthDay = MutableStateFlow("")
@@ -40,6 +39,8 @@ class MainViewModel : ViewModel() {
     }
 
     private fun validateDate(date: String): Boolean {
+        if (date.length < 8)
+            return false
         val formatter = SimpleDateFormat("ddMMyyyy", Locale.ENGLISH)
         formatter.isLenient = false
         return try {
@@ -55,7 +56,6 @@ class MainViewModel : ViewModel() {
             val isPanNumberValid = validatePanNumber(pan)
             val date = day + month + year
             val isDateValid = validateDate(date)
-            //Log.d(TAG, "isDateValid: $isDateValid")
             return@combine isPanNumberValid && isDateValid
         }
 }
