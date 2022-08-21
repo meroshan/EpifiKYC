@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Epifi KYC</string>
+    <string name="str_learn_more">Providing PAN &amp; Date of Birth helps us find and fetch your KYC from a central registry by the Government of India. <font color="#FF6200EE">Learn More</font></string>
+</resources>

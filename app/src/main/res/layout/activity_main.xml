@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/text_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:text="First of the few steps to set you up with a Bank Account"
+            android:textColor="@android:color/primary_text_light"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_pan_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_et"
+            android:hint="ABCDE1234F"
+            android:inputType="textCapCharacters"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:padding="@dimen/edit_text_padding"
+            android:textAllCaps="true"
+            android:textSize="@dimen/edit_text_text_size"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/text_header"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/text_header"
+            app:layout_constraintTop_toBottomOf="@+id/text_pan_no" />
+
+        <TextView
+            android:id="@+id/text_pan_no"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:text="PAN Number"
+            android:textAllCaps="true"
+            app:layout_constraintStart_toStartOf="@+id/text_header"
+            app:layout_constraintTop_toBottomOf="@+id/text_header" />
+
+        <TextView
+            android:id="@+id/tv_birthdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Birthdate"
+            android:textAllCaps="true"
+            app:layout_constraintStart_toStartOf="@+id/et_pan_number"
+            app:layout_constraintTop_toBottomOf="@+id/et_pan_number" />
+
+        <EditText
+            android:id="@+id/et_day"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_et"
+            android:ems="10"
+            android:gravity="center|clip_vertical"
+            android:hint="01"
+            android:inputType="number"
+            android:maxLength="2"
+            android:padding="@dimen/edit_text_padding"
+            android:textSize="@dimen/edit_text_text_size"
+            app:layout_constraintEnd_toStartOf="@+id/et_month"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="@+id/tv_birthdate"
+            app:layout_constraintTop_toBottomOf="@+id/tv_birthdate" />
+
+        <EditText
+            android:id="@+id/et_month"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_et"
+            android:ems="10"
+            android:gravity="center|clip_vertical"
+            android:hint="01"
+            android:inputType="number"
+            android:maxLength="2"
+            android:padding="@dimen/edit_text_padding"
+            android:textSize="@dimen/edit_text_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/et_day"
+            app:layout_constraintEnd_toStartOf="@+id/et_year"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/et_day"
+            app:layout_constraintTop_toTopOf="@+id/et_day" />
+
+        <EditText
+            android:id="@+id/et_year"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_et"
+            android:ems="10"
+            android:gravity="center|clip_vertical"
+            android:hint="1998"
+            android:inputType="number"
+            android:maxLength="4"
+            android:padding="@dimen/edit_text_padding"
+            android:textSize="@dimen/edit_text_text_size"
+            app:layout_constraintBottom_toBottomOf="@+id/et_month"
+            app:layout_constraintEnd_toEndOf="@+id/et_pan_number"
+            app:layout_constraintHorizontal_weight="2"
+            app:layout_constraintStart_toEndOf="@+id/et_month"
+            app:layout_constraintTop_toTopOf="@+id/et_month" />
+
+        <TextView
+            android:id="@+id/text_learn_more"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:text="@string/str_learn_more"
+            app:layout_constraintEnd_toEndOf="@+id/et_year"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_day"
+            app:layout_constraintTop_toBottomOf="@+id/et_day" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="12dp"
+            android:stateListAnimator="@null"
+            android:text="Next"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/text_learn_more"
+            app:layout_constraintStart_toStartOf="@+id/text_learn_more"
+            app:layout_constraintTop_toBottomOf="@+id/text_learn_more" />
+
+        <TextView
+            android:id="@+id/text_no_pan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="I don't have a PAN"
+            android:textColor="@color/purple_700"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/btn_next"
+            app:layout_constraintStart_toStartOf="@+id/btn_next"
+            app:layout_constraintTop_toBottomOf="@+id/btn_next" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+
+
+
+
+
+
+
+
+
+
+
